@@ -1,5 +1,6 @@
 import sys
 import math
+import random
 
 # Auto-generated code below aims at helping you parse
 # the standard input according to the problem statement.
@@ -12,58 +13,22 @@ x0, y0 = [int(i) for i in input().split()]
 
 # game loop
 while True:
-    bomb_dir = input()  # direção
-    forcaPulo = int((w + h) / 2)
+    bomb_dir = input()
+    janelas = []
+    janelax = 0
+    janelay = 0
 
-    for i in range(forcaPulo):
-        if bomb_dir == "U" and forcaPulo < h:
-            y0 -= forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "U":
-            forcaPulo -= 1
+    for i in range((w - 1) * (h - 1)):
+        janelas.append((janelax, janelay))
+        if janelax < w - 1:
+            janelax += 1
+        else:
+            janelay += 1
+            janelax = 0
 
-        if bomb_dir == "UR" and forcaPulo < h:
-            y0 -= forcaPulo
-            x0 += forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "UR":
-            forcaPulo -= 1
+    for i in range(len(janelas)):
+        # Pega a direção e mostra todas as janelas naquela direção
+        pass
 
-        if bomb_dir == "R" and forcaPulo < h:
-            x0 += forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "R":
-            forcaPulo -= 1
-
-        if bomb_dir == "DR" and forcaPulo < h:
-            y0 += forcaPulo
-            x0 += forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "DR":
-            forcaPulo -= 1
-
-        if bomb_dir == "D" and forcaPulo < h:
-            y0 += forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "D":
-            forcaPulo -= 1
-
-        if bomb_dir == "DL" and forcaPulo < w:
-            x0 -= forcaPulo
-            y0 += forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "DL":
-            forcaPulo -= 1
-
-        if bomb_dir == "L" and forcaPulo < w:
-            x0 -= forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "L":
-            forcaPulo -= 1
-
-        if bomb_dir == "UL" and forcaPulo < w:
-            x0 -= forcaPulo
-            y0 -= forcaPulo
-            print(x0, y0)
-        elif bomb_dir == "UL":
-            forcaPulo -= 1
+    janela = random.choice(janelas)
+    print(janela[0], janela[1])
