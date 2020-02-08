@@ -98,10 +98,15 @@ while True:
                 janelasRetiradas += 1
 
     try:
-        janela = janelasNovas[int((len(janelasNovas) - 1) / 2)]
+        janela = janelasNovas[int(len(janelas) / 2)]
 
     except IndexError:
         janela = janelaBatman
 
     print(janela[0], janela[1])
     janelaBatman = janela
+
+# Erros:
+# 1 Se mover na diagonal o batman para
+# 2 Se mover muitas vezes da Index Error na linha 37 (ou outras linhas com esse código)
+#
