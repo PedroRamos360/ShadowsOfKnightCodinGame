@@ -17,6 +17,16 @@ janelax = 0
 janelay = 0
 
 # Criar dicionário para contar direções aqui
+contadorDirecoes = {
+    "U": 0,
+    "D": 0,
+    "R": 0,
+    "L": 0,
+    "UL": 0,
+    "UR": 0,
+    "DL": 0,
+    "DR": 0,
+}
 
 for i in range(w * h):
     janelas.append((janelax, janelay))
