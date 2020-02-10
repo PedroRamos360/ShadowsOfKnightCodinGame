@@ -49,50 +49,60 @@ while True:
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] == janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
 
+        U = contadorDirecoes.get("U")
+        U += 1
+
     if bomb_dir == "D":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] > janelaBatman[1] and janelaDirecao[0] == janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        D = contadorDirecoes.get("U")
+        D += 1
     # X axis
     if bomb_dir == "R":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] == janelaBatman[1] and janelaDirecao[0] > janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        R = contadorDirecoes.get("U")
+        R += 1
     if bomb_dir == "L":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] == janelaBatman[1] and janelaDirecao[0] < janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        L = contadorDirecoes.get("U")
+        L += 1
     # XY axis
     if bomb_dir == "UR":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] > janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        UR = contadorDirecoes.get("U")
+        UR += 1
     if bomb_dir == "UL":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] < janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        UL = contadorDirecoes.get("U")
+        UL += 1
     if bomb_dir == "DR":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] > janelaBatman[1] and janelaDirecao[0] > janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        DR = contadorDirecoes.get("U")
+        DR += 1
     if bomb_dir == "DL":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] > janelaBatman[1] and janelaDirecao[0] < janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
+        DL = contadorDirecoes.get("U")
+        DL += 1
     janela = janelasNovas[int(len(janelasNovas) / 2)]
 
     print(janela[0], janela[1])
