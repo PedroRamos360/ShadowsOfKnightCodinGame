@@ -17,16 +17,16 @@ janelax = 0
 janelay = 0
 
 # Criar dicionário para contar direções aqui
-contadorDirecoes = {
-    "U": 0,
-    "D": 0,
-    "R": 0,
-    "L": 0,
-    "UL": 0,
-    "UR": 0,
-    "DL": 0,
-    "DR": 0,
-}
+contadorDirecoes = [
+    0, #"U":
+    0, #"D":
+    0, #"R":
+    0, #"L":
+    0, #"UL":
+    0, #"UR":
+    0, #"DL":
+    0, #"DR":
+]
 
 for i in range(w * h):
     janelas.append((janelax, janelay))
@@ -49,9 +49,7 @@ while True:
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] == janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
 
-        U = contadorDirecoes.get("U")
-        U += 1
-
+        contadorDirecoes[0] += 1
     if bomb_dir == "D":
         for i in range(w * h):
             janelaDirecao = janelas[i]
@@ -106,5 +104,6 @@ while True:
     janela = janelasNovas[int(len(janelasNovas) / 2)]
 
     print(janela[0], janela[1])
+    print(contadorDirecoes)
     janelaBatman = janela
 
