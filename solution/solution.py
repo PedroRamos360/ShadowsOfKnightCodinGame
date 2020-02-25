@@ -103,12 +103,9 @@ while True:
 
     janela = janelasNovas[int(len(janelasNovas) / 2)]
     index = 0
-    if search(janelasErradas, janela):
-        for Janela in janelasNovas:
-            if Janela != janelasErradas[index]:
-                janela = Janela
-                break
-            index += 1
+    while search(janelasErradas, janela):
+        index += 1
+        janela = janelasNovas[int(len(janelasNovas) / 2) - index]
 
     # Output
     print(janela[0], janela[1])
