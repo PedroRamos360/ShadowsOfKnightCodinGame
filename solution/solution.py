@@ -18,14 +18,14 @@ janelay = 0
 
 # Criar dicionário para contar direções aqui
 contadorDirecoes = [
-    0, #"U":
-    0, #"D":
-    0, #"R":
-    0, #"L":
-    0, #"UL":
-    0, #"UR":
-    0, #"DL":
-    0, #"DR":
+    0, #"U"[0]
+    0, #"D"[1]
+    0, #"R"[2]
+    0, #"L":[3]
+    0, #"UR":[4]
+    0, #"UL":[5]
+    0, #"DR":[6]
+    0, #"DL":[7]
 ]
 
 for i in range(w * h):
@@ -48,62 +48,59 @@ while True:
             janelaDirecao = janelas[i]
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] == janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-
         contadorDirecoes[0] += 1
     if bomb_dir == "D":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] > janelaBatman[1] and janelaDirecao[0] == janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        D = contadorDirecoes.get("U")
-        D += 1
+        contadorDirecoes[1] += 1
     # X axis
     if bomb_dir == "R":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] == janelaBatman[1] and janelaDirecao[0] > janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        R = contadorDirecoes.get("U")
-        R += 1
+        contadorDirecoes[2] += 1
     if bomb_dir == "L":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] == janelaBatman[1] and janelaDirecao[0] < janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        L = contadorDirecoes.get("U")
-        L += 1
+        contadorDirecoes[3] += 1
     # XY axis
     if bomb_dir == "UR":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] > janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        UR = contadorDirecoes.get("U")
-        UR += 1
+        contadorDirecoes[4] += 1
     if bomb_dir == "UL":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] < janelaBatman[1] and janelaDirecao[0] < janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        UL = contadorDirecoes.get("U")
-        UL += 1
+        contadorDirecoes[5] += 1
     if bomb_dir == "DR":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] > janelaBatman[1] and janelaDirecao[0] > janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        DR = contadorDirecoes.get("U")
-        DR += 1
+        contadorDirecoes[6] += 1
     if bomb_dir == "DL":
         for i in range(w * h):
             janelaDirecao = janelas[i]
             if janelaDirecao[1] > janelaBatman[1] and janelaDirecao[0] < janelaBatman[0]:
                 janelasNovas.append(janelaDirecao)
-        DL = contadorDirecoes.get("U")
-        DL += 1
+        contadorDirecoes[7] += 1
+
+    # Pega o a janela que está no meio das janelas disponíveis para determinada direção
     janela = janelasNovas[int(len(janelasNovas) / 2)]
 
+    # Output
     print(janela[0], janela[1])
     print(contadorDirecoes)
+
+    # Atualiza a janela do Batman
     janelaBatman = janela
 
