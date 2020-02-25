@@ -12,6 +12,13 @@ n = int(input())  # maximum number of turns before game over.
 x0, y0 = [int(i) for i in input().split()]
 janelaBatman = [x0, y0]
 
+def search(lista, item):
+    for i in range(len(lista)):
+        if lista[i] == item:
+            return True
+    return False
+
+janelasErradas = []
 janelas = []
 janelax = 0
 janelay = 0
@@ -94,13 +101,22 @@ while True:
                 janelasNovas.append(janelaDirecao)
         contadorDirecoes[7] += 1
 
-    # Pega o a janela que está no meio das janelas disponíveis para determinada direção
     janela = janelasNovas[int(len(janelasNovas) / 2)]
+    index = 0
+    if search(janelasErradas, janela):
+        for Janela in janelasNovas:
+            if Janela != janelasErradas[index]:
+                janela = Janela
+                break
+            index += 1
 
     # Output
     print(janela[0], janela[1])
+
+    # Debug Output
     print(contadorDirecoes)
 
     # Atualiza a janela do Batman
     janelaBatman = janela
+    janelasErradas.append(janelaBatman)
 
